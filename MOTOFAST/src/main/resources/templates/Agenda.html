@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Agenda</title>
+    <link href="/Motofast.css" rel="stylesheet" type="text/css"> 
+    <script>
+		
+        
+       function excluirCliente() {
+  window.alert("Perfil excluído");
+  
+}
+		</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+        <img src="/LogoMotofast.png" class="logo">
+     </div>
+      </header>
+    <main>
+        <br>
+        <h2 class="titulo">FUNCIONÁRIO</h2>
+        <br>
+
+        <div class="caixa"><br>
+            <form class="formulario" th:action="@{/motofast/funcionario/atualizar-perfil/{id}(id=${funcionario.id})}" method="post" th:object="${funcionario}">
+
+                <p>Nome:</p>
+                <input type="text" placeholder="Nome e Sobrenome" class="campo" th:field="*{nome}"><br><br>
+                
+          
+                <p>Telefone:</p>
+                <input type="number" placeholder="Telefone" class="campo"th:field="*{telefone}"><br><br>
+                
+          
+                <p>E-mail:</p>
+                <input type="email" placeholder="E-mail" class="campo" th:field="*{email}"><br><br>
+                
+          
+                <p>Setor: </p>
+                <select class="campo" th:field="*{setor}">
+                   <option value="">Escolher Setor:</option>
+                   <option value="Atendente">Atendente</option>
+                   <option value="Mecanico">Mecânico</option>
+                </select><br><br>
+               
+          
+                <p>CPF:</p>
+                <input type="number" placeholder="CPF" class="campo" th:field="*{cpf}"><br><br>
+                
+
+                <p>Senha: </p>
+                <input type="text" placeholder="Senha" class="campo" th:field="*{senha}"><br><br><br>
+               
+                <input type="submit" value="ALTERAR" class="botao"><br><br>
+
+            </form>
+            
+             <form class="formulario" method="post" th:action="@{/motofast/funcionario/excluir-funcionario/{id}(id=${funcionario.id})}">
+   
+            <input type="submit" value="EXCLUIR" onclick="excluirFuncionario()" class="botao">
+            <br> <br>
+</form>
+            
+            </div><br><br>
+            
+           
+
+            <br>
+            <h2 class="titulo">AGENDA</h2>
+            <br>
+
+        <center>
+        <input type="date" class="data">
+    </center>
+    <BR><br><BR><br><BR><br>
+
+        <div class="formulario">
+            <a href="Funcionarios.html" ><button class="botao">VOLTAR</button></a>
+         </div>
+         <br><br>
+
+    </main>
+</body>
+</html>
